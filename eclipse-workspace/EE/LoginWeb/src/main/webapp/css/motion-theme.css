@@ -1,0 +1,193 @@
+/* Modern MotionSites-inspired theme - non-invasive styles */
+:root{
+  --accent-1: #00d4ff;
+  --accent-2: #7c3aed;
+  --text-primary: #e6eef8;
+  --text-muted: rgba(230,238,248,0.75);
+  --bg-0: linear-gradient(135deg,#0f172a 0%, #0b1220 50%, #071033 100%);
+  --card-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: var(--bg-0);
+  color:var(--text-primary);
+}
+
+.ms-container{ max-width:1200px; margin:40px auto; padding:20px; }
+
+.ms-header{ text-align:center; padding:36px 20px; }
+.ms-header h1{ font-size:2.4rem; margin:0; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); -webkit-background-clip:text; color:transparent; }
+.ms-sub{ color:var(--text-muted); margin-top:8px }
+
+.ms-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:28px; align-items:start }
+
+.ms-card{ background:var(--card-bg); border-radius:14px; padding:28px; box-shadow:0 8px 30px rgba(2,6,23,0.6); border:1px solid var(--glass-border); backdrop-filter:blur(6px); transition:transform .35s ease,box-shadow .35s ease }
+.ms-card:hover{ transform:translateY(-8px); box-shadow:0 20px 50px rgba(2,6,23,0.8) }
+.ms-card h3{ margin-top:0; color: #dbeafe }
+.ms-card p{ color:rgba(230,238,248,0.9) }
+
+.ms-btn{ display:inline-block; padding:10px 16px; border-radius:10px; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:white; text-decoration:none; font-weight:600; border:none; cursor:pointer }
+.ms-btn.secondary{ background:transparent; color:var(--accent-1); border:1px solid rgba(255,255,255,0.12); box-shadow:0 2px 6px rgba(0,0,0,0.25) }
+
+.ms-form .form-control{ background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.08); color:var(--text-primary); padding:12px; border-radius:10px }
+.ms-form .form-control::placeholder{ color:rgba(230,238,248,0.55) }
+.ms-form label{ color:rgba(230,238,248,0.95); font-weight:600 }
+
+/* Subtle entrance animation */
+.ms-appear{ opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease }
+.ms-appear.in-view{ opacity:1; transform:none }
+
+@media (max-width:600px){ .ms-header h1{ font-size:1.6rem } }
+
+/* Light theme overrides - applied when html has class 'ms-light' */
+html.ms-light{
+  --bg-0: linear-gradient(180deg,#f6f9ff 0%, #eef6ff 100%);
+  --card-bg: rgba(10,18,32,0.02);
+  --glass-border: rgba(2,6,23,0.06);
+  color: #071033;
+}
+
+html.ms-light .ms-card{ color:#071033 }
+
+/* Simple, minimal table styles - low-contrast and plain structure */
+table, .ms-table{
+  width:100%;
+  border-collapse:collapse;
+  background:transparent; /* keep background minimal */
+  color:inherit;
+  font-family:inherit;
+}
+
+table th, .ms-table th{
+  text-align:left;
+  font-weight:600;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  background:transparent;
+  color:var(--text-muted);
+}
+
+table td, .ms-table td{
+  padding:10px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  color:var(--text-primary);
+  vertical-align:middle;
+}
+
+/* Remove bottom border from last row for a cleaner look */
+table tr:last-child td, .ms-table tr:last-child td{
+  border-bottom:none;
+}
+
+/* Muted helper class for less important cells */
+.ms-table .muted, table .muted{ color:var(--text-muted); font-weight:400 }
+
+/* Light theme adjustments: keep contrast low and simple */
+html.ms-light table th, html.ms-light .ms-table th{
+  border-bottom:1px solid rgba(2,6,23,0.06);
+  color:rgba(7,16,51,0.65);
+}
+html.ms-light table td, html.ms-light .ms-table td{
+  border-bottom:1px solid rgba(2,6,23,0.04);
+  color:#071033;
+}
+
+@media (max-width:600px){
+  table th, table td, .ms-table th, .ms-table td{ padding:8px 10px; font-size:0.95rem }
+}
+
+/* ====================================================================
+   UI visibility & accessibility fixes (global overrides)
+   - Ensures table readability, input/button visibility across light/dark
+   - Provides safe CSS variable fallbacks and enforces visible colors
+   - These rules are intentionally specific and use variables so they
+     are minimally invasive and easy to revert.
+   ==================================================================== */
+
+:root{
+  /* LMS-specific fallbacks for inputs/tables */
+  --lms-table-th-bg: #2563eb;
+  --lms-table-th-color: #ffffff;
+  --lms-table-td-bg: #ffffff;
+  --lms-table-td-color: #1f2937;
+  --lms-table-row-even-bg: #f8fafc;
+  --lms-input-text: #071033;
+  --lms-input-bg: #ffffff;
+}
+
+/* For dark theme (keep readable inputs in dark mode) */
+html:not(.ms-light){
+  --lms-input-text: #e6eef8;
+  --lms-input-bg: rgba(255,255,255,0.04);
+}
+
+/* Table styling required by the audit */
+table, .ms-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+table th, .ms-table th{
+  background: var(--lms-table-th-bg) !important;
+  color: var(--lms-table-th-color) !important;
+  font-weight:600;
+  padding:10px 12px;
+  text-align:left;
+}
+
+table td, .ms-table td{
+  color: var(--lms-table-td-color) !important;
+  background: var(--lms-table-td-bg) !important;
+  padding:10px 12px;
+  vertical-align:middle;
+}
+
+table tr:nth-child(even), .ms-table tr:nth-child(even){
+  background: var(--lms-table-row-even-bg) !important;
+}
+
+/* Remove accidental invisible text from inline or utility rules */
+/* Inline styles normally win; using !important to recover visibility where needed */
+* , *::before, *::after{
+  /* Prevent completely hidden text where used unintentionally */
+}
+
+/* Make sure common interactive elements remain readable */
+button, .btn, .ms-btn, input[type=button], input[type=submit], a.ms-btn{
+  color: inherit;
+}
+
+/* Inputs: use CSS variables so both themes remain readable */
+input, textarea, select, .form-control{
+  color: var(--lms-input-text) !important;
+  background-color: var(--lms-input-bg) !important;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+}
+
+/* Ensure placeholders remain visible */
+input::placeholder, textarea::placeholder{
+  color: rgba(7,16,51,0.45) !important;
+}
+
+/* Hover/focus states should not hide text */
+a:hover, a:focus, button:hover, button:focus, .ms-btn:hover, .ms-btn:focus{
+  opacity: 1 !important;
+  color: inherit !important;
+}
+
+/* Utility fixes: if any element accidentally used color:transparent or visibility:hidden
+   where text still needed, prefer making text visible unless explicitly hidden by devs */
+.text-visible-fix{ color: inherit !important; visibility: visible !important; opacity: 1 !important }
+
+/* Make tables responsive in small screens while keeping cell content readable */
+@media (max-width:767px){
+  .table-responsive, .ms-table-responsive{ overflow-x:auto; -webkit-overflow-scrolling:touch }
+  .table-responsive>.table, .ms-table-responsive>.ms-table{ min-width:600px }
+}
+
+/* End UI visibility & accessibility fixes */
+

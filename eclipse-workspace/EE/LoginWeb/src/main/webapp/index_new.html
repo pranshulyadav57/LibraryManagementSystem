@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Management System - Login Portal</title>
+<link rel="stylesheet" href="bootstrap.min.css"/>
+<link rel="stylesheet" href="css/motion-theme.css"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	min-height: 100%;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+	color: white;
+	padding: 40px 20px;
+	text-align: center;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+	backdrop-filter: blur(10px);
+}
+
+.header h1 {
+	font-size: 3em;
+	font-weight: 700;
+	background: linear-gradient(135deg, #00d4ff, #0099ff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	margin-bottom: 10px;
+	text-shadow: 0 2px 10px rgba(0,212,255,0.3);
+}
+
+.header p {
+	font-size: 1.1em;
+	color: #00d4ff;
+	font-weight: 300;
+}
+
+.main-container {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+}
+
+	/* Use motion theme's .ms-grid and .ms-card for modern look */
+	.login-grid { margin: 0 auto; }
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+.form-group label {
+	display: block;
+	font-weight: 600;
+	color: #333;
+	margin-bottom: 8px;
+	font-size: 0.95em;
+}
+
+.form-group label .required {
+	color: #ff4444;
+	margin-left: 3px;
+}
+
+.form-control {
+	width: 100%;
+	padding: 12px 15px;
+	border: 2px solid #e0e0e0;
+	border-radius: 8px;
+	font-size: 1em;
+	font-family: 'Poppins', sans-serif;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+	outline: none;
+	border-color: #0099ff;
+	box-shadow: 0 0 0 3px rgba(0, 153, 255, 0.1);
+}
+
+.form-group input[type="email"],
+.form-group input[type="text"],
+.form-group input[type="password"] {
+	padding: 12px 15px;
+}
+
+.btn-group {
+	display: flex;
+	gap: 10px;
+	margin-top: 25px;
+	flex-wrap: wrap;
+}
+
+.btn-login {
+	flex: 1;
+	min-width: 100px;
+	padding: 12px 20px;
+	background: linear-gradient(135deg, #00d4ff, #0099ff);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 1em;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	font-family: 'Poppins', sans-serif;
+}
+
+.btn-login:hover {
+	transform: scale(1.05);
+	box-shadow: 0 5px 20px rgba(0, 153, 255, 0.4);
+	color: white;
+	text-decoration: none;
+}
+
+.btn-register {
+	flex: 1;
+	min-width: 100px;
+	padding: 12px 20px;
+	background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	font-size: 1em;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+}
+
+.btn-register:hover {
+	transform: scale(1.05);
+	box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
+	color: white;
+	text-decoration: none;
+}
+
+.footer {
+	background: rgba(0,0,0,0.8);
+	color: white;
+	text-align: center;
+	padding: 20px;
+	margin-top: auto;
+	border-top: 2px solid #0099ff;
+}
+
+.footer p {
+	margin: 0;
+	font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+	.header h1 {
+		font-size: 2em;
+	}
+	
+	.login-card {
+		padding: 30px 20px;
+	}
+	
+	.form-group {
+		margin-bottom: 15px;
+	}
+	
+	.btn-group {
+		flex-direction: column;
+	}
+	
+	.btn-login, .btn-register {
+		width: 100%;
+	}
+}
+</style>
+</head>
+<body>
+
+	<div class="header">
+		<h1>🏫 Library Management System</h1>
+		<p>Secure Access Portal for Admin, Librarians & Students</p>
+	</div>
+
+	<div class="main-container">
+		<div class="login-grid ms-grid">
+			<!-- Admin Login - disabled -->
+			<div class="ms-card ms-appear">
+				<h3>🔒 Admin Login Disabled</h3>
+				<p>The admin login has been disabled. If you need admin access, contact the system administrator.</p>
+				<div class="btn-group">
+					<a href="index.html" class="ms-btn secondary">Back to Home</a>
+				</div>
+			</div>
+
+			<!-- Student Login -->
+			<div class="ms-card ms-appear">
+				<h3>👤 Student Login</h3>
+				<form class="ms-form" action="StudentLogin" method="POST">
+					<div class="form-group">
+						<label for="student_uname">Username<span class="required">*</span></label>
+						<input type="text" class="form-control" name="uname" id="student_uname" 
+							   placeholder="Enter your username" required/>
+					</div>
+					<div class="form-group">
+						<label for="student_pwd">Password<span class="required">*</span></label>
+						<input type="password" class="form-control" name="pwd" id="student_pwd" 
+							   placeholder="Enter your password" required/>
+					</div>
+					<div class="btn-group">
+						<button type="submit" class="ms-btn">Student Login</button>
+						<a href="studregform.html" class="ms-btn secondary">Register</a>
+					</div>
+				</form>
+			</div>
+
+			<!-- Librarian Login -->
+			<div class="ms-card ms-appear">
+				<h3>📚 Librarian Login</h3>
+				<form class="ms-form" action="LibrarianLogin" method="POST">
+					<div class="form-group">
+						<label for="lib_uname">Username<span class="required">*</span></label>
+						<input type="text" class="form-control" name="uname" id="lib_uname" 
+							   placeholder="Enter your username" required/>
+					</div>
+					<div class="form-group">
+						<label for="lib_pwd">Password<span class="required">*</span></label>
+						<input type="password" class="form-control" name="pwd" id="lib_pwd" 
+							   placeholder="Enter your password" required/>
+					</div>
+					<div class="btn-group">
+						<button type="submit" class="ms-btn">Librarian Login</button>
+						<a href="addlibrarianform.html" class="ms-btn secondary">Register</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p>&copy; 2026 Library Management System | All Rights Reserved</p>
+	</div>
+
+	<script src="jquery.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+</body>
+</html>

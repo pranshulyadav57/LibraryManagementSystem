@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+  <meta charset="UTF-8">
+  <title>Student Login - Library</title>
+  <link rel="stylesheet" href="bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/motion-theme.css"/>
+  <style> body { background: transparent; } </style>
+</head>
+<body>
+  <div class="ms-container">
+    <div class="ms-card ms-appear">
+      <h2>Student Login</h2>
+      <form class="ms-form" action="StudentLogin" method="post" style="max-width:420px; margin-top:16px;">
+        <div class="form-group">
+          <label for="uname">Username</label>
+          <input type="text" class="form-control" name="uname" id="uname" placeholder="Username" required/>
+        </div>
+        <div class="form-group">
+          <label for="student_pwd">Password</label>
+          <input type="password" class="form-control" name="pwd" id="student_pwd" placeholder="Password" required/>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:10px;">
+          <button type="submit" class="ms-btn">Login</button>
+          <a href="studregform.html" class="ms-btn secondary">Register</a>
+          <a href="index.html" class="ms-btn secondary">Back</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="js/motion.js"></script>
+</body>
+</html>

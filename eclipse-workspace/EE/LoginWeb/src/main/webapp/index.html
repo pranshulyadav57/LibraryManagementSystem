@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Library Management System</title>
+<link rel="stylesheet" href="bootstrap.min.css"/>
+<link rel="stylesheet" href="css/motion-theme.css"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+/* Keep small original overrides but prefer motion-theme classes */
+#mid{ padding:20px 0 }
+</style>
+</head>
+<body>
+
+
+<div class="container-fluid" >
+<h1>Welcome to Library Portal</h1>
+
+
+<div class="row" id="mid">
+  <!-- Replaced inline login forms with separate entry cards linking to dedicated login pages -->
+  <div class="col-md-6 ms-appear">
+	<div class="ms-card">
+	  <h3>Student Portal</h3>
+	  <p>Students can search, issue, and return books.</p>
+	  <a href="student-login.html" class="ms-btn">Student Login</a>
+	</div>
+  </div>
+
+  <div class="col-md-6 ms-appear">
+	<div class="ms-card">
+	  <h3>Librarian Portal</h3>
+	  <p>Librarians handle day-to-day library transactions.</p>
+	  <a href="librarian-login.html" class="ms-btn">Librarian Login</a>
+	</div>
+  </div>
+  </div>
+</div>
+
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="js/motion.js"></script>
+</body>
+</html>

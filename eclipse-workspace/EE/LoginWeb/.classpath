@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <!-- Java Runtime Environment configuration -->
+    <classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+        <attributes>
+            <attribute name="module" value="true"/>
+        </attributes>
+    </classpathentry>
+
+    <!-- Source folder for Java code -->
+    <classpathentry kind="src" path="src/main/java"/>
+
+    <!-- Java EE web project dependencies -->
+    <classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+    <classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+
+    <!-- MySQL Connector -->
+    <classpathentry exported="true" kind="lib" path="src/main/webapp/WEB-INF/lib/mysql-connector-j-9.1.0.jar"/>
+
+    <!-- Tomcat runtime -->
+    <classpathentry exported="true" kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.1">
+        <attributes>
+            <attribute name="owner.project.facets" value="jst.web"/>
+        </attributes>
+    </classpathentry>
+
+    <!-- Output folder for compiled classes -->
+    <classpathentry kind="output" path="build/classes"/>
+</classpath>
